@@ -210,6 +210,13 @@
     <Content Include="Scripts\jquery-3.3.1.slim.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Snapshots\1.JPG" />
+    <Content Include="Snapshots\2.JPG" />
+    <Content Include="Snapshots\3.JPG" />
+    <Content Include="Snapshots\4.JPG" />
+    <Content Include="Snapshots\5.JPG" />
+    <Content Include="Snapshots\6.JPG" />
+    <Content Include="Snapshots\7.JPG" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
