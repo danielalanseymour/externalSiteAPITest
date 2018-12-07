@@ -1,0 +1,19 @@
+﻿@model ExternalQuizSite.Models.ModelHome
+
+    <!-- using WebApplication1.Models -->
+@{
+    //TempData["QuizSelectionView"] = Model;
+}
+
+<head>
+    <title> Quiz Selectoin </title>
+</head>
+<body>
+    <h2>QuizSelection</h2>
+
+    @using (Html.BeginForm("GoToQuiz", "Home")){ 
+        foreach (String quiz in Model.Quizzes) {
+            <button name="quizName" value="@quiz"> @quiz  </button> <br/>
+        }
+    }
+</body>

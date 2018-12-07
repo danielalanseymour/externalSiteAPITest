@@ -1,0 +1,17 @@
+﻿@model ExternalQuizSite.Models.ModelQuiz
+
+<!-- using WebApplication1.Models -->
+@{
+    //TempData["ScoreView"] =
+}
+
+<head>
+    <title> Quiz </title>
+</head>
+<body>
+    <h1>Quiz <i>@Model.Quiz.QuizName</i></h1>
+
+    <h2> Score: @Model.Quiz.Score.ToString("0.00") </h2>
+
+
+</body>

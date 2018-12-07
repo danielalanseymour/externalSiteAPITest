@@ -1,0 +1,35 @@
+﻿@model ExternalQuizSite.Models.ModelQuiz
+
+<!-- using WebApplication1.Models -->
+@{
+    TempData["QuizView"] = Model;
+}
+
+<head>
+    <title> Quiz </title>
+</head>
+<body>
+    <h2>Quiz: <i>@Model.Quiz.QuizName</i></h2>
+
+
+
+
+    @using (Html.BeginForm("QuizSubmission", "Home"))
+    {
+        for (int i = 0; i < Model.Quiz.Questions.Count; i++)
+        {
+            <P>
+                @(i + 1). @Model.Quiz.Questions[i].QuestionString <BR>
+
+                @for (int j = 0; j < Model.Quiz.Questions[i].Answers.Length; j++)
+                {
+                    <input type="radio" id="@i" name="question@(i+1)" value="@j"> 
+                        @Model.Quiz.Questions[i].Answers[j] <BR>
+                }
+            </P>
+        }
+        <button> Submit Your Test </button>
+    }
+
+
+    </body>
