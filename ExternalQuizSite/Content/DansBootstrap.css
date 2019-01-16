@@ -1,12 +1,95 @@
 @import 'bootstrap.css';
 
 
+navbar-fixed-top {
+    background-color: pink;
+}
+
+html{
+    width:100%;
+}
+body {
+    background-color: #F5F5F5;
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    width:100%;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/****************************************************           TopNav  */
+.topnav {
+    overflow: hidden;
+    background-color: #333;
+    margin: 0;
+    width: 100%;
+}
+
+    .topnav a {
+        float: left;
+        display: block;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+        .topnav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+
+
+/****************************************************           Footer  */
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background-color: black;
-  color: white;
-  text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+}
+
+
+
+/****************************************************           quizSelection  */
+#quizSelection button {
+    width: 40%;
+    padding: 10px 0px 10px 0px;
+    margin: 10px 0 10px 0px;
+    background: #00FFFF;
+    border-radius: 10px;
+    
+}
+    #quizSelection button:hover {
+        background-color: yellow;
+    }
+
+
+
+/****************************************************           quizSelection  */
+div#quiz{
+    padding: 0% 30% 0% 30%;
 }

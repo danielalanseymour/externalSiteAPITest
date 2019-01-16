@@ -9,11 +9,17 @@
     <title> Quiz Selectoin </title>
 </head>
 <body>
-    <h2>QuizSelection</h2>
 
-    @using (Html.BeginForm("GoToQuiz", "Home")){ 
-        foreach (String quiz in Model.Quizzes) {
-            <button name="quizName" value="@quiz"> @quiz  </button> <br/>
+    <center id="quizSelection">
+        <h2>QuizSelection</h2>
+        @using (Html.BeginForm("GoToQuiz", "Home")){ 
+            foreach (String quiz in Model.Quizzes) {
+                <button name="quizName" value="@quiz" id="quizSelection" title="Take @quiz and have fun"> 
+                    @quiz  
+                </button> <br/>
+            }
         }
-    }
+    </center>
+
+
 </body>

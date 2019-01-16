@@ -11,8 +11,7 @@ namespace ExternalQuizSite.Controllers {
 
         
         // GET api/quiz
-        public Quiz Get()
-        {
+        public Quiz Get() {
             GetQuiz get = new GetQuiz();
             return get.DefaultQuiz();
         }
@@ -24,7 +23,6 @@ namespace ExternalQuizSite.Controllers {
             GetQuiz get = new GetQuiz();
             if (id >= 0 && id < 10) {
                 quiz = get.DefaultQuiz(" Quiz " + id);
-
             }
             else {
                 quiz = null;
@@ -33,8 +31,8 @@ namespace ExternalQuizSite.Controllers {
         }
 
         // POST api/values
-        public void Post([FromBody]string value)
-        {
+        public void Post([FromBody]string value) {
+
         }
 
         // PUT api/values/5

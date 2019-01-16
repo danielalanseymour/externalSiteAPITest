@@ -21,8 +21,7 @@ namespace ExternalQuizSite
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       //"~/Content/bootstrap.css",
-                      "~/Content/DansBootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/DansBootstrap.css"));
         }
     }
 }
