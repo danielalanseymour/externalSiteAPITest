@@ -65,6 +65,9 @@ namespace ExternalQuizSite.Controllers
                 quiz = (ModelQuiz)TempData["QuizController"];
                 TempData["QuizController"] = null;
             }
+            else if (TempData["QuizView"] != null) {
+                quiz = (ModelQuiz)TempData["QuizView"];
+            }
             else {
                 quiz = quiz.DefaultQuizModel();
             }
@@ -99,9 +102,9 @@ namespace ExternalQuizSite.Controllers
 
 
 
-         /**********************************************************************     Score
+        /**********************************************************************     Score
           
-         **********************************************************************/
+        **********************************************************************/
         public ActionResult Score() {
             ModelQuiz quiz = new ModelQuiz();
 
@@ -120,24 +123,55 @@ namespace ExternalQuizSite.Controllers
 
 
 
-        public ActionResult QuizSubmission(int? question1, int? question2, int? question3) {
-            
-            ModelQuiz quiz = (ModelQuiz)TempData["QuizView"];
+
+        /**********************************************************************     QuizSubmission
+          
+        **********************************************************************/
+        public ActionResult QuizSubmission(FormCollection form) {
+
+            if (TempData["QuizView"] == null) {
+                RedirectToAction("QuizSelection");
+            }
+
+
+            ModelQuiz modelQuiz = (ModelQuiz)TempData["QuizView"];
             TempData["QuizView"] = null;
 
-            if (question1 != null && ((int)question1 == quiz.Quiz.Questions[0].CorrectAnswer) )
-                quiz.Quiz.NumberCorrect++;
-            if (question2 != null && ((int)question2 == quiz.Quiz.Questions[1].CorrectAnswer))
-                quiz.Quiz.NumberCorrect++;
-            if (question3 != null && ((int)question3 == quiz.Quiz.Questions[2].CorrectAnswer))
-                quiz.Quiz.NumberCorrect++;
-            
-            quiz.Quiz.Score = 100.00*((double)quiz.Quiz.NumberCorrect/quiz.Quiz.NumeberOfQuestions);
-            
+            int correctAnswer = 0;
+            int selectedAnswer = 0;
+            int questionNumberAnswered = 0;
+
+            int numberAnswered = form.Count;
+            int numberOfQuestions = modelQuiz.Quiz.Questions.Count;
 
 
+            try {
+                for (int i = 0; i < numberOfQuestions; i++) {
+                    selectedAnswer = Convert.ToInt32(form[i]);
+                    questionNumberAnswered = Convert.ToInt32(form.AllKeys[i]);
 
-            TempData["ScoreController"] = quiz;
+                    for (; i < questionNumberAnswered; i++) {
+                        // Mark wrong
+                    }
+
+                    correctAnswer = modelQuiz.Quiz.Questions[i].CorrectAnswer;
+
+                    if (selectedAnswer == correctAnswer) {
+                        modelQuiz.Quiz.NumberCorrect++;
+                    }
+
+
+                }
+
+
+                modelQuiz.Quiz.Score = 100.00 * ((double)modelQuiz.Quiz.NumberCorrect / modelQuiz.Quiz.NumeberOfQuestions);
+            }
+            catch {
+                TempData["QuizController"] = modelQuiz;
+                return RedirectToAction("Quiz");
+            }
+
+            TempData["ScoreController"] = modelQuiz;
             return RedirectToAction("Score");
         }
 

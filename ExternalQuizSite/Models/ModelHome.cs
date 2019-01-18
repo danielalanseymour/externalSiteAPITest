@@ -14,6 +14,7 @@ namespace ExternalQuizSite.Models {
          **********************************************************************/
         public ModelHome DefaultHome() {
             GetQuiz get = new GetQuiz();
+
             return new ModelHome() {
                 Quizzes= get.QuizNames(),
             };
