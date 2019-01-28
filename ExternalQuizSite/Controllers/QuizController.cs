@@ -9,12 +9,17 @@ using System.Web.Http;
 namespace ExternalQuizSite.Controllers {
     public class QuizController : ApiController {
 
-        
+        /**************************************************     GET
+         *************************************************/
+
         // GET api/quiz
         public Quiz Get() {
             GetQuiz get = new GetQuiz();
             return get.DefaultQuiz();
         }
+
+
+
 
         // GET api/quiz/5
         public Quiz Get(int id) {
@@ -30,19 +35,46 @@ namespace ExternalQuizSite.Controllers {
             return quiz;
         }
 
-        // POST api/values
+
+
+
+
+        // GET api/quiz/{API}
+        public void GET([FromBody]API api) {
+            ExternalConnection externalConnection = new ExternalConnection();
+            externalConnection.SaveQuiz(api);
+        }
+
+
+
+        /**************************************************     POST
+         *************************************************/
+        // POST api/quiz
         public void Post([FromBody]string value) {
 
         }
 
-        // PUT api/values/5
-        public void Put(int id, [FromBody]string value)
-        {
+
+
+
+
+        /**************************************************     PUT
+         *************************************************/
+        // PUT api/quiz/5
+        public void Put(int id, [FromBody]string value) {
+
         }
 
-        // DELETE api/values/5
-        public void Delete(int id)
-        {
+
+
+
+
+
+        /**************************************************     DELETE
+         *************************************************/
+        // DELETE api/quiz/5
+        public void Delete(int id) {
+
         }
 
 
